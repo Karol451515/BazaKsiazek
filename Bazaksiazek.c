@@ -1,15 +1,19 @@
 ﻿ // Bazaksiazek.cpp : Ten plik zawiera funkcję „main”. W nim rozpoczyna się i kończy wykonywanie programu.
 //
 
+#define _CRT_SECURE_NO_WARNINGS //  Visual Studio blokuje mi zwyklego "scanf" jako niebezpiecznego
 #include <stdio.h>
 #include "biblioteka.h"
 
 int main()
 {
-    int wybor;
+    Ksiazka baza[100];
+    int liczba_ksiazek = 0;
 
+    int wybor;
+    
     do {
-        printf("\DOMOWA BIBLIOTEKA\n");
+        printf("\n DOMOWA BIBLIOTEKA\n");
         printf("1. Wyswietl ksiazki\n");
         printf("2. Dodaj ksiazke\n");
         printf("0. Wyjscie\n");
@@ -20,11 +24,11 @@ int main()
         switch (wybor)
         {
             case 1:
-                wyswietlKsiazki();
+                wyswietlKsiazki(baza, liczba_ksiazek);
                 break;
 
             case 2:
-                dodajKsiazke();
+                dodajKsiazke(baza, &liczba_ksiazek);
                 break;
         }
 
@@ -33,13 +37,26 @@ int main()
     return 0;
 }
 
-// Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
-// Debugowanie programu: F5 lub menu Debugowanie > Rozpocznij debugowanie
+void wyswietlKsiazki(Ksiazka baza[], int liczba_ksiazek)
+{
+    if (liczba_ksiazek == 0) {
+        printf("Baza ksiazek jest pusta! Dodaj najpierw jakies pozycje. \n");
+        return;
+    }
 
-// Porady dotyczące rozpoczynania pracy:
-//   1. Użyj okna Eksploratora rozwiązań, aby dodać pliki i zarządzać nimi
-//   2. Użyj okna programu Team Explorer, aby nawiązać połączenie z kontrolą źródła
-//   3. Użyj okna Dane wyjściowe, aby sprawdzić dane wyjściowe kompilacji i inne komunikaty
-//   4. Użyj okna Lista błędów, aby zobaczyć błędy
-//   5. Wybierz pozycję Projekt > Dodaj nowy element, aby utworzyć nowe pliki kodu, lub wybierz pozycję Projekt > Dodaj istniejący element, aby dodać istniejące pliku kodu do projektu
-//   6. Aby w przyszłości ponownie otworzyć ten projekt, przejdź do pozycji Plik > Otwórz > Projekt i wybierz plik sln
+    printf("\n+----------------------+--------------------------------+-------------+----------------------+\n");
+    printf("| Autorzy              | Tytul                          | Rok wydania | ISBN                 |\n");
+    printf("+----------------------+--------------------------------+-------------+----------------------+\n");
+
+    for (int i = 0; i < liczba_ksiazek; ++i) {
+
+        printf("| %-20s | %-30s | %-11d | %-20s |\n",
+            baza[i].autor,
+            baza[i].tytul,
+            baza[i].rok_wydania,
+            baza[i].isbn);
+    }
+
+    printf("+----------------------+--------------------------------+-------------+----------------------+\n");
+}
+
