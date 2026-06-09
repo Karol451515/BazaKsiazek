@@ -127,7 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Bazaksiazek.cpp" />
+    <ClCompile Include="Bazaksiazek.c" />
+    <ClCompile Include="operacje.c" />
+    <ClCompile Include="pliki.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="biblioteka.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
