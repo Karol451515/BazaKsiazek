@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS //  Visual Studio blokuje mi zwyklego "scanf" jako niebezpiecznego
+
 #include <stdio.h>
 #include <string.h>
 #include "biblioteka.h"
@@ -31,7 +33,7 @@ void dodajKsiazke(Ksiazka baza[], int* liczba) {
     scanf(" %[^\n]", nowa.gatunek);
 
     printf("Rodzaj okladki (miekka/twarda): ");
-    scanf(" %[^\n]", nowa.rodzaj);
+    scanf(" %[^\n]", nowa.okladka);
 
     baza[*liczba] = nowa;
     (*liczba)++;

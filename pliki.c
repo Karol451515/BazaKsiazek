@@ -10,7 +10,7 @@ void zapiszDoPliku(Ksiazka baza[], int liczba ) {
 	}
 
 	fwrite(&liczba, sizeof(int), 1, plik); //zapis liczby książęk
-	fwirte(baza, sizeof(Ksiazka), liczba, plik);
+	fwrite(baza, sizeof(Ksiazka), liczba, plik);
 
 	fclose(plik);
 	printf("Dane zapisano do pliku\n");
