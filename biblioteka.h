@@ -8,7 +8,16 @@ typedef struct {
 	char tytul[100];
 } Ksiazka;
 
+/*operacje na ksiazkach*/
 void wyswietlKsiazki();
 void dodajKsiazke();
+void wyszukajKsiazke();
+void usunKsiazke();
+void sortujKsiazki();
+
+/*operacje na plikach*/
+void zapiszDoPliku();
+void wczytajZPliku();
+void utworzPrzykladowaBaza();
 
 #endif
