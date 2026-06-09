@@ -1,11 +1,22 @@
 ﻿// Bazaksiazek.cpp : Ten plik zawiera funkcję „main”. W nim rozpoczyna się i kończy wykonywanie programu.
 //
 
-
+#include <stdio.h>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    int wybor;
+
+    do {
+        printf("\DOMOWA BIBLIOTEKA\n");
+        printf("1. Wyswietl ksiazki\n");
+        printf("0. Wyjscie\n");
+
+        scanf("%d", &wybor);
+
+    } while (wybor != 0);
+
+    return 0;
 }
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
