@@ -8,4 +8,7 @@ typedef struct {
 	char tytul[100];
 } Ksiazka;
 
+void wyswietlKsiazki();
+void dodajKsiazke();
+
 #endif

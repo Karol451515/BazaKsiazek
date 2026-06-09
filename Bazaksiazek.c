@@ -10,9 +10,22 @@ int main()
     do {
         printf("\DOMOWA BIBLIOTEKA\n");
         printf("1. Wyswietl ksiazki\n");
+        printf("2. Dodaj ksiazke\n");
         printf("0. Wyjscie\n");
 
-        scanf("%d", &wybor);
+        printf("Wybor: ");
+        scanf_s("%d", &wybor);
+
+        switch (wybor)
+        {
+            case 1:
+                wyswietlKsiazki();
+                break;
+
+            case 2:
+                dodajKsiazke();
+                break;
+        }
 
     } while (wybor != 0);
 
