@@ -1,4 +1,4 @@
-﻿// Bazaksiazek.cpp : Ten plik zawiera funkcję „main”. W nim rozpoczyna się i kończy wykonywanie programu.
+﻿ // Bazaksiazek.cpp : Ten plik zawiera funkcję „main”. W nim rozpoczyna się i kończy wykonywanie programu.
 //
 
 #include <stdio.h>
