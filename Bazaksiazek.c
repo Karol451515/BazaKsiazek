@@ -2,6 +2,7 @@
 //
 
 #include <stdio.h>
+#include "biblioteka.h"
 
 int main()
 {

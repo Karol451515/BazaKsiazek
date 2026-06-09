@@ -2,6 +2,8 @@
 
 #ifndef BIBLIOTEKA_H
 #define BIBLIOTEKA_H
+#define MAX_KSIAZEK 100
+#define PLIK_BAZY "baza_ksiazek.bin"
 
 typedef struct {
     char autor[100];
@@ -21,8 +23,8 @@ void usunKsiazke();
 void sortujKsiazki();
 
 /*operacje na plikach*/
-void zapiszDoPliku();
-void wczytajZPliku();
-void utworzPrzykladowaBaza();
+void zapiszDoPliku(Ksiazka baza[], int liczba);
+void wczytajZPliku(Ksiazka baza[], int* liczba);
+void utworzPrzykladowaBaze(Ksiazka baza[], int* liczba);
 
 #endif
