@@ -17,14 +17,14 @@ typedef struct {
 
 /*operacje na ksiazkach*/
 void wyswietlKsiazki(Ksiazka baza[], int liczba_ksiazek);
-void dodajKsiazke();
-void wyszukajKsiazke();
-void usunKsiazke();
-void sortujKsiazki();
+void dodajKsiazke(Ksiazka baza[], int* liczba);
+void wyszukajKsiazke(Ksiazka baza[], int liczba);
+void usunKsiazke(Ksiazka baza[], int* liczba);
+void sortujKsiazki(Ksiazka baza[], int liczba);
 
 /*operacje na plikach*/
-void zapiszDoPliku();
-void wczytajZPliku();
-void utworzPrzykladowaBaza();
+void zapiszDoPliku(Ksiazka baza[], int liczba);
+void wczytajZPliku(Ksiazka baza[], int* liczba);
+void utworzPrzykladowaBaza(Ksiazka baza[], int* liczba);
 
 #endif
