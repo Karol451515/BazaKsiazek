@@ -1,5 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS //  Visual Studio blokuje mi zwyklego "scanf" jako niebezpiecznego
-
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 #include "biblioteka.h"
