@@ -48,9 +48,10 @@ int main()
             usunKsiazke(baza, &liczba_ksiazek);   
             break;
 
-        /*case 5:
-            sortujKsiazki(baza, liczba_ksiazek);  
-            break;*/
+        case 5:
+            sortujKsiazki(baza, liczba_ksiazek);
+            wyswietlKsiazki(baza, liczba_ksiazek);
+            break;
 
         case 6:
             utworzPrzykladowaBaza(baza, &liczba_ksiazek); 
