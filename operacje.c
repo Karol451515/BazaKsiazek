@@ -206,3 +206,71 @@ void usunKsiazke(Ksiazka baza[], int* liczba) {
         printf("Anulowano usuwanie.\n");
     }
 }
+
+int porownajAutor(const void* a, const void* b)
+{
+    Ksiazka* k1 = (Ksiazka*)a;
+    Ksiazka* k2 = (Ksiazka*)b;
+
+    int c = strcmp(k1->autor, k2->autor);
+    return c != 0 ? c : strcmp(k1->tytul, k2->tytul);
+}
+
+int porownajTytul(const void* a, const void* b)
+{
+    Ksiazka* k1 = (Ksiazka*)a;
+    Ksiazka* k2 = (Ksiazka*)b;
+
+    int c = strcmp(k1->tytul, k2->tytul);
+    return c != 0 ? c : strcmp(k1->autor, k2->autor);
+}
+
+int porownajRok(const void* a, const void* b)
+{
+    Ksiazka* k1 = (Ksiazka*)a;
+    Ksiazka* k2 = (Ksiazka*)b;
+
+    return k1->rok_wydania - k2->rok_wydania;
+}
+
+void sortujKsiazki(Ksiazka baza[], int liczba) {
+
+    int wybor;
+    
+    if (liczba <= 0)
+    {
+        printf("Brak ksiazek do sortowania.\n");
+        return;
+    }
+
+    printf("\nSortowanie wedlug:\n");
+    printf("1. Autora\n");
+    printf("2. Tytulu\n");
+    printf("3. Roku wydania\n");
+    printf("Wybor: ");
+    scanf("%d", &wybor);
+
+    switch (wybor) {
+    case 1:
+        qsort(baza, liczba, sizeof(Ksiazka), porownajAutor);
+        printf("Posortowano ksiazki po autorze.\n");
+        break;
+
+    case 2:
+        qsort(baza, liczba, sizeof(Ksiazka), porownajTytul);
+        printf("Posortowano ksiazki po tytule.\n");
+        break;
+
+    case 3:
+        qsort(baza, liczba, sizeof(Ksiazka), porownajRok);
+        printf("Posortowano ksiazki po roku wydania.\n");
+        break;
+
+    default:
+        printf("Niepoprawny wybor sortowania.\n");
+        return;
+
+    }
+    printf("Posortowano ksiazki");
+    zapiszDoPliku(baza, liczba);
+}

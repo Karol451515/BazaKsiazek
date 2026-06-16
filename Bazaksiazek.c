@@ -13,7 +13,7 @@ int main()
 
     int wybor;
 
-    wczytajZPliku(baza, &liczba_ksiazek);
+    //wczytajZPliku(baza, &liczba_ksiazek);
     
     do {
         printf("\n DOMOWA BIBLIOTEKA\n");
@@ -22,7 +22,8 @@ int main()
         printf("3. Wyszukaj ksiazke\n");         
         printf("4. Usun ksiazke\n");             
         printf("5. Sortuj ksiazki\n");           
-        printf("6. Wygeneruj baze testowa\n");   
+        printf("6. Wygeneruj baze testowa\n"); 
+        printf("7. Wczytaj baze z pliku\n");
         printf("0. Zapisz i Wyjscie\n");         
 
         printf("Wybor: ");
@@ -47,13 +48,14 @@ int main()
             usunKsiazke(baza, &liczba_ksiazek);   
             break;
 
-       /*case 5:
-            sortujKsiazki(baza, liczba_ksiazek);  
-            break;*/
+        case 5:
+            sortujKsiazki(baza, liczba_ksiazek);
+            wyswietlKsiazki(baza, liczba_ksiazek);
+            break;
 
         case 6:
-            utworzPrzykladowaBaze(baza, &liczba_ksiazek); 
-            break;
+            utworzPrzykladowaBaza(baza, &liczba_ksiazek); 
+            break;*/
 
         case 0:
             zapiszDoPliku(baza, liczba_ksiazek);  

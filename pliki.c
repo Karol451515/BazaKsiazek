@@ -23,7 +23,7 @@ void wczytajZPliku(Ksiazka baza[], int *liczba) {
 
 	if (plik == NULL) {
 		printf("plik nie istnieje. \n");
-		utworzPrzykladowaBaze(baza, liczba);
+		utworzPrzykladowaBaza(baza, liczba);
 		return;
 	}
 
@@ -37,7 +37,7 @@ void wczytajZPliku(Ksiazka baza[], int *liczba) {
 
 }
 
-void utworzPrzykladowaBaze(Ksiazka baza[], int *liczba) {
+void utworzPrzykladowaBaza(Ksiazka baza[], int *liczba) {
 	*liczba = 20;
 
 	strcpy(baza[0].autor, "J.R.R Tolkien");
