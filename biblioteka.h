@@ -7,7 +7,7 @@
 
 typedef struct {
     char autor[100];
-    char tytul[100];
+    char tytul[50];
     int rok_wydania;
     char isbn[20];
     int liczba_stron;
@@ -25,6 +25,6 @@ void sortujKsiazki(Ksiazka baza[], int liczba);
 /*operacje na plikach*/
 void zapiszDoPliku(Ksiazka baza[], int liczba);
 void wczytajZPliku(Ksiazka baza[], int* liczba);
-void utworzPrzykladowaBaza(Ksiazka baza[], int* liczba);
+void utworzPrzykladowaBaze(Ksiazka baza[], int* liczba);
 
 #endif

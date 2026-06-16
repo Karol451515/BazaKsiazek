@@ -47,13 +47,13 @@ int main()
             usunKsiazke(baza, &liczba_ksiazek);   
             break;
 
-       /* case 5:
+       /*case 5:
             sortujKsiazki(baza, liczba_ksiazek);  
-            break;
+            break;*/
 
         case 6:
-            utworzPrzykladowaBaza(baza, &liczba_ksiazek); 
-            break;*/
+            utworzPrzykladowaBaze(baza, &liczba_ksiazek); 
+            break;
 
         case 0:
             zapiszDoPliku(baza, liczba_ksiazek);  
@@ -83,7 +83,7 @@ void wyswietlKsiazki(Ksiazka baza[], int liczba_ksiazek)
 
     for (int i = 0; i < liczba_ksiazek; ++i) {
 
-        printf("| %-20s | %-30s | %-11d | %-20s |\n",
+        printf("| %-20.20s | %-30.30s | %-11d | %-20s |\n",
             baza[i].autor,
             baza[i].tytul,
             baza[i].rok_wydania,

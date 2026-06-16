@@ -14,25 +14,92 @@ void dodajKsiazke(Ksiazka baza[], int* liczba) {
     printf("\n--- DODAWANIE KSIAZKI ---\n");
 
     printf("Autor: ");
-    scanf(" %[^\n]", nowa.autor);
+    scanf(" %99[^\n]", nowa.autor);
 
     printf("Tytul: ");
-    scanf(" %[^\n]", nowa.tytul);
+    scanf(" %49[^\n]", nowa.tytul);
 
-    printf("Rok wydania: ");
-    scanf(" %d", &nowa.rok_wydania);
+    //rok wydania + zabezpieczenia
+    
+    int poprawny_rok = 0;
+
+    do {
+        printf("Rok wydania (tylko liczba): ");
+
+        if (scanf(" %d", &nowa.rok_wydania) == 1) {
+            char nastepny_znak = getchar();
+
+            if (nastepny_znak == '\n') {
+                if (nowa.rok_wydania > 0 && nowa.rok_wydania <= 2026) {
+                    poprawny_rok = 1;
+                }
+                else {
+                    printf("Blad! Rok wydania musi byc liczba wieksza od 0 i nie z przyszlosci.\n");
+                }
+            }
+            else {
+                printf("Blad! Wpisz sama liczbe, bez zadnego tekstu.\n");
+                while (getchar() != '\n');
+            }
+        }
+        else {
+            printf("Blad! To w ogole nie jest liczba.\n");
+            while (getchar() != '\n');
+        }
+    } while (poprawny_rok == 0);
+
+
 
     printf("ISBN: ");
-    scanf(" %[^\n]", nowa.isbn);
+    scanf(" %19[^\n]", nowa.isbn);
 
-    printf("Liczba stron: ");
-    scanf(" %d", &nowa.liczba_stron);
+
+    //liczba stron + zabezpieczenia
+    int poprawna_liczba_stron = 0;
+
+    do {
+        printf("Liczba stron (tylko liczba): ");
+
+        if (scanf(" %d", &nowa.liczba_stron) == 1) {
+            char nastepny_znak = getchar();
+
+            if (nastepny_znak == '\n') {
+                if (nowa.liczba_stron > 0 && nowa.liczba_stron <= 10000) {
+                    poprawna_liczba_stron = 1;
+                }
+                else {
+                    printf("Blad! Liczba stron musi byc dodatnia i realna (np. 1 - 10000).\n");
+                }
+            }
+            else {
+                printf("Blad! Wpisz sama liczbe, bez zadnego tekstu.\n");
+                while (getchar() != '\n');
+            }
+        }
+        else {
+            printf("Blad! To w ogole nie jest liczba.\n");
+            while (getchar() != '\n');
+        }
+    } while (poprawna_liczba_stron == 0);
+
 
     printf("Gatunek (np. dramat, komedia, fantasy): ");
-    scanf(" %[^\n]", nowa.gatunek);
+    scanf(" %29[^\n]", nowa.gatunek);
 
-    printf("Rodzaj okladki (miekka/twarda): ");
-    scanf(" %[^\n]", nowa.okladka);
+
+    //rodziaj okładki + zabezpieczenia
+    int poprawna_okladka = 0;
+    do {
+        printf("Rodzaj okladki (miekka/twarda): ");
+        scanf(" %9[^\n]", nowa.okladka);
+
+        if (strcmp(nowa.okladka, "miekka") == 0 || strcmp(nowa.okladka, "twarda") == 0) {
+            poprawna_okladka = 1;
+        }
+        else {
+            printf("Blad! Wpisz dokladnie 'miekka' lub 'twarda'.\n");
+        }
+    } while (poprawna_okladka == 0);
 
     baza[*liczba] = nowa;
     (*liczba)++;
@@ -47,7 +114,7 @@ void wyszukajKsiazke(Ksiazka baza[], int liczba) {
     }
 
     int wybor;
-    char fraza[100];
+    char fraza[100] = "";
     int znaleziono = 0;
 
     printf("\n--- WYSZUKIWANIE ---\n");
@@ -59,11 +126,11 @@ void wyszukajKsiazke(Ksiazka baza[], int liczba) {
     if (wybor == 1) {
         printf("Podaj nazwe autora (lub fragment): ");
         scanf(" %[^\n]", fraza);
-        printf("\n%-30s %-40s %-6s %-20s\n", "Autor", "Tytul", "Rok", "ISBN");
+        printf("\n%-30.30s %-40s %-6s %-20s\n", "Autor", "Tytul", "Rok", "ISBN");
         printf("--------------------------------------------------------------------------------\n");
         for (int i = 0; i < liczba; i++) {
             if (strstr(baza[i].autor, fraza) != NULL) {
-                printf("%-30s %-40s %-6d %-20s\n",
+                printf("%-30.30s %-40s %-6d %-20s\n",
                     baza[i].autor, baza[i].tytul,
                     baza[i].rok_wydania, baza[i].isbn);
                 znaleziono++;
@@ -103,7 +170,7 @@ void usunKsiazke(Ksiazka baza[], int* liczba) {
         return;
     }
 
-    char fraza[100];
+    char fraza[100] = "";
     int indeks = -1;
 
     printf("\n--- USUWANIE KSIAZKI ---\n");
